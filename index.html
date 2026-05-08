@@ -30,7 +30,7 @@
       overflow-x: hidden;
     }
 
-    /* ═══ HEADER ═══ */
+
     .header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -195,7 +195,7 @@
       color: var(--text);
     }
 
-    /* ═══ MAIN LAYOUT ═══ */
+
     .container {
       max-width: 1400px;
       margin: 0 auto;
@@ -287,7 +287,6 @@
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 
-    /* ═══ PROFILE SYSTEM ═══ */
     .profile-header {
       background: var(--card);
       border: 1px solid var(--border);
@@ -352,7 +351,7 @@
       margin-top: 16px;
     }
 
-    /* ═══ FRIENDS SYSTEM ═══ */
+
     .friend-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -459,7 +458,6 @@
       opacity: 0.8;
     }
 
-    /* ═══ AVATAR SYSTEM ═══ */
     .avatar-editor {
       display: grid;
       grid-template-columns: 1fr 300px;
@@ -590,7 +588,6 @@
       background: rgba(0,162,255,0.1);
     }
 
-    /* ═══ AUTH SCREEN ═══ */
     .auth-screen {
       min-height: 100vh;
       display: flex;
@@ -747,7 +744,7 @@
 </head>
 <body>
 
-<!-- AUTH SCREEN -->
+
 <div id="authScreen" class="auth-screen">
   <div class="auth-card">
     <div class="auth-header">
@@ -801,9 +798,9 @@
   </div>
 </div>
 
-<!-- MAIN APP -->
+
 <div id="mainApp" class="hidden">
-  <!-- Header -->
+
   <header class="header">
     <a href="#" class="logo" onclick="navigateTo('home')">
       <div class="logo-icon">
@@ -835,9 +832,8 @@
     </div>
   </header>
 
-  <!-- Pages -->
+
   <div class="container">
-    <!-- HOME PAGE -->
     <div id="homePage" class="page">
       <div class="page-header">
         <h1 class="page-title">Home</h1>
@@ -865,7 +861,6 @@
       </div>
     </div>
 
-    <!-- PROFILE PAGE -->
     <div id="profilePage" class="page hidden">
       <div class="profile-header">
         <div class="profile-avatar-large" id="profileAvatar">U</div>
@@ -907,7 +902,7 @@
       </div>
     </div>
 
-    <!-- FRIENDS PAGE -->
+
     <div id="friendsPage" class="page hidden">
       <div class="page-header">
         <h1 class="page-title">Friends</h1>
@@ -963,7 +958,7 @@
       </div>
     </div>
 
-    <!-- AVATAR PAGE -->
+
     <div id="avatarPage" class="page hidden">
       <div class="page-header">
         <h1 class="page-title">Avatar Editor</h1>
@@ -1016,7 +1011,7 @@
 </div>
 
 <script>
-// ═══ STATE MANAGEMENT ═══
+
 let currentUser = null;
 let currentPage = 'home';
 let currentFriendsTab = 'all';
@@ -1028,7 +1023,7 @@ const AVATAR_COLORS = [
   '#32cd32', '#02b757', '#8b4513', '#808080'
 ];
 
-// ═══ AUTH FUNCTIONS ═══
+
 function switchAuthTab(tab) {
   const loginTab = document.querySelector('.auth-tab:first-child');
   const signupTab = document.querySelector('.auth-tab:last-child');
@@ -1172,7 +1167,7 @@ function hideError(id) {
   el.previousElementSibling.classList.remove('error');
 }
 
-// ═══ NAVIGATION ═══
+
 function navigateTo(page) {
   currentPage = page;
   
@@ -1207,7 +1202,7 @@ function switchFriendsTab(tab) {
   }
 }
 
-// ═══ UI UPDATES ═══
+
 function updateUserDisplay() {
   if (!currentUser) return;
   
@@ -1219,7 +1214,7 @@ function updateUserDisplay() {
   document.getElementById('profileUsername').textContent = currentUser.username;
 }
 
-// ═══ AVATAR SYSTEM ═══
+
 function initAvatarEditor() {
   const headColors = document.getElementById('headColors');
   const bodyColors = document.getElementById('bodyColors');
@@ -1259,9 +1254,7 @@ function selectColor(element, color, part) {
   }
 }
 
-// ═══ INITIALIZATION ═══
 document.addEventListener('DOMContentLoaded', () => {
-  // Check for existing session
   const session = localStorage.getItem('bv_session');
   if (session) {
     try {
